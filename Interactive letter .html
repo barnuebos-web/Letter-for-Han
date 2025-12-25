@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choco & Milk Letter</title>
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f7efe5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.envelope {
+  width: 280px;
+  height: 190px;
+  background: #7b4a2e;
+  position: relative;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+.envelope.open {
+  transform: scale(0.2);
+  opacity: 0;
+}
+.flap {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-top: 95px solid #5a341f;
+}
+.env-text {
+  position: absolute;
+  bottom: 18px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.panels {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 20px;
+  max-width: 700px;
+}
+.panel {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+.roses {
+  text-align: center;
+}
+.music {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.album {
+  background: #f3f3f3;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.letter {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.question {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(#fff7d6, #fff);
+}
+.choco-milk {
+  font-size: 50px;
+  margin-top: 10px;
+}
+.button-group {
+  margin-top: 15px;
+}
+button {
+  padding: 8px 15px;
+  margin: 0 8px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.yes { background: #ffca28; }
+.no { background: #e0e0e0; }
+</style>
+</head>
+<body>
+<audio id="bgMusic" src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" autoplay loop></audio>
+<div class="envelope" id="env" onclick="openLetter()">
+  <div class="flap"></div>
+  <div class="env-text">Tap to open 💌</div>
+</div>
+<div class="panels" id="panels">
+  <div class="panel roses">
+    <img src="https://i.ibb.co/3Wqgphf/roses-bouquet.jpg" alt="Bouquet of roses" style="width:100%; border-radius:12px;">
+  </div>
+  <div class="panel">
+    <div class="music">
+      <div class="album">🎧 Last Night on Earth</div>
+      <div class="album">🎶 Nothing – Bruno Major</div>
+      <div class="album">💿 Wanna Be Yours</div>
+    </div>
+  </div>
+  <div class="panel letter">
+    Hi Johanna, I hope you're enjoying this gift so far and I hope you love it. Thank you for showing me what real love means and it really means a lot to me. I am beyond grateful to you. Thank you for always caring, worrying, and understanding.<br><br>From the moment I met you, my heart knew that you were someone special. Your laughter brightens my darkest days, your smile warms my soul, and your presence fills my life with happiness. I cherish every moment we spend together and I am constantly in awe of the person you are.
+  </div>
+  <div class="panel question">
+    Will you do the honor of being my girlfriend? 💛
+    <div class="choco-milk">🥛🍫</div>
+    <div class="button-group">
+      <button class="yes" onclick="alert('She said YES! 💖')">Yes! 💕</button>
+      <button class="no" onclick="alert('It\'s okay 🙂')">No... 😅</button>
+    </div>
+  </div>
+</div>
+<script>
+function openLetter() {
+  document.getElementById("env").classList.add("open");
+  setTimeout(() => {
+    document.getElementById("env").style.display = "none";
+    document.getElementById("panels").style.display = "grid";
+    document.getElementById("bgMusic").play();
+  }, 800);
+}
+</script>
+</body>
+</html>
